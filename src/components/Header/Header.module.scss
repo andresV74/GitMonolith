@@ -1,0 +1,13 @@
+.header {
+	align-items: center;
+	background-color: var(--color-gm-dark-gray);
+	display: flex;
+	justify-content: space-between;
+	height: 64px;
+	padding-inline: 24px;
+	position: sticky;
+	width: 100%;
+	top: 0;
+	z-index: 50;
+
+}

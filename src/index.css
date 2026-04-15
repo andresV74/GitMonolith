@@ -1,0 +1,12 @@
+:root {
+	--color-gm-gray: #c4c7ce;
+	--color-gm-dark-gray: #181c22;
+	--color-gm-blue: #acc7ff;
+}
+
+body {
+	background-color: #10141a;
+	color: #dfe2eb;
+	font-family: 'Inter', sans-serif;
+	font-size: 16px;
+}
