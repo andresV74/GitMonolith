@@ -1,0 +1,66 @@
+/* 1. Box sizing universal para mejor manejo de tamaños */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* 2. Eliminar márgenes por defecto de elementos clave */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* 3. Estilos base del body */
+body {
+	min-height: 100dvh;
+	/* Usa unidades de viewport dinámicas */
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* 4. Mejoras en la tipografía y equilibrio de texto */
+h1,
+h2,
+h3,
+h4 {
+	text-wrap: balance;
+	/* Equilibra líneas en títulos */
+}
+
+p,
+li,
+figcaption {
+	text-wrap: pretty;
+	/* Evita huérfanas en párrafos */
+}
+
+/* 5. Asegurar que imágenes y svgs sean responsivos */
+img,
+picture,
+video,
+canvas,
+svg {
+	max-width: 100%;
+	display: block;
+}
+
+/* 6. Eliminar estilos de lista por defecto */
+ul[class],
+ol[class] {
+	list-style: none;
+	padding: 0;
+}
+
+/* 7. Comportamiento suave de scroll */
+html {
+	scroll-behavior: smooth;
+}

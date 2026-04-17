@@ -2,12 +2,43 @@
 	align-items: center;
 	background-color: var(--color-gm-dark-gray);
 	display: flex;
-	justify-content: space-between;
+	gap: 32px;
 	height: 64px;
-	padding-inline: 24px;
+	padding-inline: 20px;
 	position: sticky;
-	width: 100%;
 	top: 0;
 	z-index: 50;
 
+	&-title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		letter-spacing: -0.025em;
+		color: var(--color-gm-blue);
+	}
+
+	nav {
+		display: none;
+
+		@media (min-width: 768px) {
+			align-items: center;
+			display: flex;
+			gap: 24px;
+		}
+	}
+
+	a {
+		align-items: center;
+		color: var(--color-gm-gray);
+		display: flex;
+		gap: 4px;
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-gm-blue);
+		}
+	}
+
+	@media (min-width: 768px) {
+		padding-inline: 24px;
+	}
 }

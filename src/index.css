@@ -1,12 +1,22 @@
+@import './reset.css';
+
 :root {
+	--color-gm-accent-gray: #acc8ff16;
+	--color-gm-border-gray: #4247534d;
+	--color-gm-transparent-gray: #31353c4d;
+	--color-gm-light-gray: #dfe2eb;
 	--color-gm-gray: #c4c7ce;
 	--color-gm-dark-gray: #181c22;
+	--color-gm-almost-black: #0a0e14;
 	--color-gm-blue: #acc7ff;
+	--color-gm-dark-blue: #002f68;
+	--color-gm-error: #ffb4ab;
+	--color-gm-yellow: #f1e05a;
 }
 
 body {
 	background-color: #10141a;
-	color: #dfe2eb;
+	color: var(--color-gm-light-gray);
 	font-family: 'Inter', sans-serif;
 	font-size: 16px;
 }
