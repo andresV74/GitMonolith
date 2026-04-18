@@ -1,6 +1,16 @@
 import styles from './index.module.scss';
 
-export function MainHeader() {
+type Language = {
+  title: string
+  value: string
+}
+
+interface MainHeaderProps {
+  languages: Language[]
+  loading: boolean
+}
+
+export function MainHeader({ languages, loading }: MainHeaderProps) {
 	return (
 		<div className={styles['main-header']}>
 			<div>
@@ -8,14 +18,23 @@ export function MainHeader() {
 				<p>Discover your next open-source project.</p>
 			</div>
 			<div>
-				<label>Language Filter</label>
+				<label htmlFor="language">Language Filter</label>
 				<form action="" method="get">
 					<span className="material-symbols-outlined text-primary text-lg">code</span>
-					<select name="" id="">
-						<option value="">Select a language</option>
-						<option value="javascript">JavaScript</option>
-						<option value="python">Python</option>
-						<option value="java">Java</option>
+					<select
+						name="language"
+						id="language"
+						disabled={loading || languages.length === 0}
+					>
+						{loading ? (
+							<option value="">Loading languages...</option>
+						) : (
+							languages.map((language, id) => (
+								<option key={id} value={language.value}>
+									{language.title}
+								</option>
+							))
+						)}
 					</select>
 				</form>
 			</div>
