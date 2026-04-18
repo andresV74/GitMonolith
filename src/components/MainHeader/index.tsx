@@ -1,16 +1,7 @@
 import styles from './index.module.scss';
+import type { LanguageProps } from '../../types/language'
 
-type Language = {
-  title: string
-  value: string
-}
-
-interface MainHeaderProps {
-  languages: Language[]
-  loading: boolean
-}
-
-export function MainHeader({ languages, loading }: MainHeaderProps) {
+export function MainHeader({ languages, loading }: LanguageProps) {
 	return (
 		<div className={styles['main-header']}>
 			<div>

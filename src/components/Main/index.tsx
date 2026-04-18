@@ -3,18 +3,9 @@ import { MainCard } from '../MainCard/index.tsx';
 import { SecondaryCards } from '../SecondaryCards/index.tsx';
 
 import styles from './index.module.scss';
+import type { LanguageProps } from '../../types/language'
 
-type Language = {
-  title: string
-  value: string
-}
-
-interface MainProps {
-  languages: Language[]
-  loading: boolean
-}
-
-export function Main({ languages, loading }: MainProps) {
+export function Main({ languages, loading }: LanguageProps) {
 	return (
 		<main className={styles.main}>
       <div className={styles['main-content']}>

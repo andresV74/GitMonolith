@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react'
-
-type Language = {
-	title: string
-	value: string
-}
+import type { Language } from '../types/language'
 
 export function useLanguages() {
 	const LANGUAGE_DATA = 'https://raw.githubusercontent.com/kamranahmedse/githunt/master/src/components/filters/language-filter/languages.json'
