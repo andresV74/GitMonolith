@@ -29,7 +29,7 @@ export function MainCard() {
 						<span className={styles['stat-label']}>842</span>
 					</div>
 					<div className={styles['stat-item']}>
-					<div className={`${styles['stat-value']} ${styles['stat-error']}`}>
+						<div className={`${styles['stat-value']} ${styles['stat-error']}`}>
 							<span className="material-symbols-outlined">error</span>
 							<span>Issues</span>
 						</div>

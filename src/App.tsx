@@ -6,10 +6,14 @@ import { useLanguages } from './hooks/useLanguages.tsx'
 function App() {
   const { languages, loading } = useLanguages()
 
+  const handleChangeLanguage = (selectedLanguage: string) => {
+    console.log('Selected language:', selectedLanguage)
+  }
+
   return (
     <>
       <Header />
-      <Main languages={languages} loading={loading} />
+      <Main languages={languages} loading={loading} onChangeLanguage={handleChangeLanguage} />
       <MobileNavigation />
     </>
   )

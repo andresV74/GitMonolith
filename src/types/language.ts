@@ -6,4 +6,5 @@ export type Language = {
 export interface LanguageProps {
   languages: Language[]
   loading: boolean
+	onChangeLanguage: (selectedLanguage: string) => void
 }
