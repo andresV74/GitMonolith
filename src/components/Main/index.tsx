@@ -6,6 +6,11 @@ import styles from './index.module.scss';
 import type { LanguageProps } from '../../types/language'
 import type { RepositoryItem } from '../../types/repoInfo.ts';
 
+interface PostMetaProps {
+  publishedAt: string // ISO 8601 string, e.g. "2024-06-01T12:00:00Z"
+  updatedAt?: string
+}
+
 export function Main(
 	{
 		languages,
@@ -15,7 +20,10 @@ export function Main(
 		cardState,
 		selectedLanguage,
 		selectedRepo,
-		isSearching }: LanguageProps
+		isSearching,
+		publishedAt
+	}: LanguageProps
+		& PostMetaProps
 		& {
 			cardState: boolean;
 			selectedRepo: RepositoryItem | null;
@@ -26,7 +34,7 @@ export function Main(
 		<main className={styles.main}>
       <div className={styles['main-content']}>
 				<MainHeader languages={languages} loading={loading} error={error} onChangeLanguage={onChangeLanguage} />
-				<MainCard cardState={cardState} selectedLanguage={selectedLanguage} selectedRepo={selectedRepo} isSearching={isSearching} />
+				<MainCard cardState={cardState} selectedLanguage={selectedLanguage} selectedRepo={selectedRepo} isSearching={isSearching} publishedAt={publishedAt} />
 				<SecondaryCards />
       </div>
 		</main>

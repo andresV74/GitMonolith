@@ -2,13 +2,20 @@ import type { LanguageProps } from '../../types/language';
 import type { RepositoryItem } from '../../types/repoInfo';
 import styles from './index.module.scss';
 
+interface PostMetaProps {
+  publishedAt: string // ISO 8601 string, e.g. "2024-06-01T12:00:00Z"
+  updatedAt?: string
+}
+
 export function MainCard(
 	{
 		cardState,
 		selectedLanguage,
 		selectedRepo,
-		isSearching }: LanguageProps
-		& {
+		isSearching,
+		publishedAt
+	}: LanguageProps
+		& PostMetaProps & {
 			cardState: boolean;
 			selectedRepo: RepositoryItem | null;
 			isSearching: boolean }) {
@@ -69,7 +76,11 @@ export function MainCard(
 							{isSearching ? 'Loading...' : selectedLanguage}
 						</span>
 					</div>
-					<span>Updated 2h ago</span>
+					<span>
+						<relative-time datetime={publishedAt} tense='past'>
+							{new Date(publishedAt).toLocaleDateString()}
+						</relative-time>
+					</span>
 				</div>
 			</div>
 		)

@@ -53,6 +53,7 @@ function App() {
         selectedLanguage={selectedLanguage}
         selectedRepo={selectedRepo}
         isSearching={isSearching}
+        publishedAt={new Date().toISOString()}
       />
       <MobileNavigation />
     </>
