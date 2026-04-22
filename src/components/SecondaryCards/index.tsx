@@ -4,10 +4,10 @@ export function SecondaryCards() {
 	return (
 		<div className={styles['secondary-cards']}>
 			<div className={styles.card}>
-				<h3>
+				<h4>
 					<span className="material-symbols-outlined">history</span>
 					<span>Search History</span>
-				</h3>
+				</h4>
 				<div>
 					<a href='#' className={styles['history-item']}>
 						<span>hyper-terminal/v4</span>

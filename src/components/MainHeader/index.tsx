@@ -23,12 +23,12 @@ export function MainHeader({ languages, loading, onChangeLanguage }: LanguagePro
 					<select
 						name="language"
 						id="language"
-						disabled={loading || languages.length === 0}
+						disabled={loading || languages?.length === 0}
 					>
 						{loading ? (
 							<option value="">Loading languages...</option>
 						) : (
-							languages.map((language, id) => (
+							languages?.map((language, id) => (
 								<option key={id} value={language.value}>
 									{language.title}
 								</option>

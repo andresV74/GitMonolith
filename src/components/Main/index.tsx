@@ -4,13 +4,29 @@ import { SecondaryCards } from '../SecondaryCards/index.tsx';
 
 import styles from './index.module.scss';
 import type { LanguageProps } from '../../types/language'
+import type { RepositoryItem } from '../../types/repoInfo.ts';
 
-export function Main({ languages, loading, onChangeLanguage }: LanguageProps) {
+export function Main(
+	{
+		languages,
+		loading,
+		error,
+		onChangeLanguage,
+		cardState,
+		selectedLanguage,
+		selectedRepo,
+		isSearching }: LanguageProps
+		& {
+			cardState: boolean;
+			selectedRepo: RepositoryItem | null;
+			isSearching: boolean
+		}
+	) {
 	return (
 		<main className={styles.main}>
       <div className={styles['main-content']}>
-				<MainHeader languages={languages} loading={loading} onChangeLanguage={onChangeLanguage} />
-				<MainCard />
+				<MainHeader languages={languages} loading={loading} error={error} onChangeLanguage={onChangeLanguage} />
+				<MainCard cardState={cardState} selectedLanguage={selectedLanguage} selectedRepo={selectedRepo} isSearching={isSearching} />
 				<SecondaryCards />
       </div>
 		</main>

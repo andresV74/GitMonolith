@@ -2,6 +2,7 @@
 	background-color: var(--color-gm-dark-gray);
 	border-radius: 8px;
 	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+	min-height: 529px;
 	overflow: hidden;
 	position: relative;
 
@@ -19,6 +20,16 @@
 		padding: 1.25rem;
 		position: relative;
 		z-index: 10;
+
+		&.empty {
+			align-items: center;
+			justify-content: center;
+			min-height: inherit;
+
+			h2 {
+				text-align: center;
+			}
+		}
 
 		@media (min-width: 768px) {
 			padding: 2.5rem;

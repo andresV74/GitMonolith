@@ -4,7 +4,9 @@ export type Language = {
 }
 
 export interface LanguageProps {
-  languages: Language[]
-  loading: boolean
-	onChangeLanguage: (selectedLanguage: string) => void
+  languages?: Language[] | null
+  loading?: boolean
+	error?: Error | null
+	selectedLanguage?: string
+	onChangeLanguage?: (selectedLanguage: string) => void
 }
