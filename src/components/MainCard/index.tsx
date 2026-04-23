@@ -1,11 +1,7 @@
 import type { LanguageProps } from '../../types/language';
 import type { RepositoryItem } from '../../types/repoInfo';
 import styles from './index.module.scss';
-
-interface PostMetaProps {
-  publishedAt: string // ISO 8601 string, e.g. "2024-06-01T12:00:00Z"
-  updatedAt?: string
-}
+import type { PostMetaProps } from '../../types/postMetaProps'
 
 export function MainCard(
 	{
@@ -26,10 +22,14 @@ export function MainCard(
 				<div className={styles['main-card-content']}>
 					<div>
 						<h3>
-							{isSearching ? 'Loading...' : selectedRepo?.name}
+							{
+								isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[0]
+							}
 						</h3>
 						<h2>
-							{isSearching ? 'Loading...' : selectedRepo?.name}
+							{
+								isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[1]
+							}
 						</h2>
 						<p>
 							{isSearching ? 'Loading...' : selectedRepo?.description}
@@ -41,27 +41,27 @@ export function MainCard(
 								<span className="material-symbols-outlined">star</span>
 								<span>Stars</span>
 							</div>
-							<span className={styles['stat-label']}>
+							<div className={styles['stat-label']}>
 								{isSearching ? 'Loading...' : selectedRepo?.stargazers_count}
-							</span>
+							</div>
 						</div>
 						<div className={styles['stat-item']}>
 							<div className={styles['stat-value']}>
 								<span className="material-symbols-outlined">account_tree</span>
 								<span>Forks</span>
 							</div>
-							<span className={styles['stat-label']}>
+							<div className={styles['stat-label']}>
 								{isSearching ? 'Loading...' : selectedRepo?.forks_count}
-							</span>
+							</div>
 						</div>
 						<div className={styles['stat-item']}>
 							<div className={`${styles['stat-value']} ${styles['stat-error']}`}>
 								<span className="material-symbols-outlined">error</span>
 								<span>Issues</span>
 							</div>
-							<span className={styles['stat-label']}>
+							<div className={styles['stat-label']}>
 								{isSearching ? 'Loading...' : selectedRepo?.open_issues_count}
-							</span>
+							</div>
 						</div>
 					</div>
 					<button>

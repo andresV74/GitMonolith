@@ -5,11 +5,7 @@ import { SecondaryCards } from '../SecondaryCards/index.tsx';
 import styles from './index.module.scss';
 import type { LanguageProps } from '../../types/language'
 import type { RepositoryItem } from '../../types/repoInfo.ts';
-
-interface PostMetaProps {
-  publishedAt: string // ISO 8601 string, e.g. "2024-06-01T12:00:00Z"
-  updatedAt?: string
-}
+import type { PostMetaProps } from '../../types/postMetaProps'
 
 export function Main(
 	{
