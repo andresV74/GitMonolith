@@ -1,15 +1,8 @@
+import { handleChange} from '../../services/handleChange'
 import styles from './index.module.scss';
 import type { LanguageProps } from '../../types/language'
 
 export function MainHeader({ languages, loading, onChangeLanguage }: LanguageProps) {
-	const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
-		event.preventDefault()
-		const formData = new FormData(event.currentTarget)
-		const selectedLanguage = formData.get('language')
-
-		onChangeLanguage(selectedLanguage as string)
-	}
-
 	return (
 		<header className={styles['main-header']}>
 			<div>
@@ -18,7 +11,7 @@ export function MainHeader({ languages, loading, onChangeLanguage }: LanguagePro
 			</div>
 			<div>
 				<label htmlFor="language">Language Filter</label>
-				<form onChange={handleChange} id='language-choose-form' role='search'>
+				<form onChange={(e) => handleChange(e, onChangeLanguage)} id='language-choose-form' role='search'>
 					<span className="material-symbols-outlined text-primary text-lg">code</span>
 					<select
 						name="language"

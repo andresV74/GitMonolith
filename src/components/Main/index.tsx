@@ -21,8 +21,9 @@ export function Main(
 	}: LanguageProps
 		& PostMetaProps
 		& {
-			cardState: boolean;
-			selectedRepo: RepositoryItem | null;
+			cardState: boolean
+			selectedLanguage: string
+			selectedRepo: RepositoryItem | null
 			isSearching: boolean
 		}
 	) {
@@ -30,7 +31,7 @@ export function Main(
 		<main className={styles.main}>
       <div className={styles['main-content']}>
 				<MainHeader languages={languages} loading={loading} error={error} onChangeLanguage={onChangeLanguage} />
-				<MainCard cardState={cardState} selectedLanguage={selectedLanguage} selectedRepo={selectedRepo} isSearching={isSearching} publishedAt={publishedAt} />
+				<MainCard cardState={cardState} selectedLanguage={selectedLanguage} selectedRepo={selectedRepo} isSearching={isSearching} publishedAt={publishedAt} onChangeLanguage={onChangeLanguage} />
 				<SecondaryCards />
       </div>
 		</main>

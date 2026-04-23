@@ -6,33 +6,34 @@ import type { PostMetaProps } from '../../types/postMetaProps'
 export function MainCard(
 	{
 		cardState,
-		selectedLanguage,
+		selectedLanguage = '',
 		selectedRepo,
 		isSearching,
-		publishedAt
+		publishedAt,
+		error,
+		onChangeLanguage,
 	}: LanguageProps
 		& PostMetaProps & {
 			cardState: boolean;
+			selectedLanguage: string;
 			selectedRepo: RepositoryItem | null;
-			isSearching: boolean }) {
+			isSearching: boolean
+		}
+	) {
 	return ((cardState)
 		? (
-			<div className={styles['main-card']}>
+			<div className={isSearching ? `${styles['main-card']} ${styles['main-card--loading']}` : styles['main-card']}>
 				<div className={styles['main-card-accent']}></div>
 				<div className={styles['main-card-content']}>
 					<div>
-						<h3>
-							{
-								isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[0]
-							}
+						<h3 className={isSearching ? styles.loading : ''}>
+							{selectedRepo?.full_name.split('/')[0]}
 						</h3>
 						<h2>
-							{
-								isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[1]
-							}
+							{isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[1]}
 						</h2>
-						<p>
-							{isSearching ? 'Loading...' : selectedRepo?.description}
+						<p className={isSearching ? styles.loading : ''}>
+							{selectedRepo?.description}
 						</p>
 					</div>
 					<div className={styles['main-card-stats-grid']}>
@@ -41,8 +42,8 @@ export function MainCard(
 								<span className="material-symbols-outlined">star</span>
 								<span>Stars</span>
 							</div>
-							<div className={styles['stat-label']}>
-								{isSearching ? 'Loading...' : selectedRepo?.stargazers_count}
+							<div className={isSearching ? `${styles['stat-label']} ${styles['loading']}` : styles['stat-label']}>
+								{selectedRepo?.stargazers_count}
 							</div>
 						</div>
 						<div className={styles['stat-item']}>
@@ -50,8 +51,8 @@ export function MainCard(
 								<span className="material-symbols-outlined">account_tree</span>
 								<span>Forks</span>
 							</div>
-							<div className={styles['stat-label']}>
-								{isSearching ? 'Loading...' : selectedRepo?.forks_count}
+							<div className={isSearching ? `${styles['stat-label']} ${styles['loading']}` : styles['stat-label']}>
+								{selectedRepo?.forks_count}
 							</div>
 						</div>
 						<div className={styles['stat-item']}>
@@ -59,12 +60,15 @@ export function MainCard(
 								<span className="material-symbols-outlined">error</span>
 								<span>Issues</span>
 							</div>
-							<div className={styles['stat-label']}>
-								{isSearching ? 'Loading...' : selectedRepo?.open_issues_count}
+							<div className={isSearching ? `${styles['stat-label']} ${styles['loading']}` : styles['stat-label']}>
+								{selectedRepo?.open_issues_count}
 							</div>
 						</div>
 					</div>
-					<button>
+					<button
+						onClick={() => onChangeLanguage(selectedLanguage)}
+						disabled={isSearching}
+					>
 						<span className="material-symbols-outlined">casino</span>
 							Fetch Random Repository
 					</button>
@@ -73,7 +77,7 @@ export function MainCard(
 					<div className={styles['footer-item']}>
 						<div></div>
 						<span>
-							{isSearching ? 'Loading...' : selectedLanguage}
+							{selectedLanguage}
 						</span>
 					</div>
 					<span>
