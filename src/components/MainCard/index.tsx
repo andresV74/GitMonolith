@@ -10,7 +10,6 @@ export function MainCard(
 		selectedRepo,
 		isSearching,
 		publishedAt,
-		error,
 		onChangeLanguage,
 	}: LanguageProps
 		& PostMetaProps & {
@@ -20,7 +19,8 @@ export function MainCard(
 			isSearching: boolean
 		}
 	) {
-	return ((cardState)
+	return (
+		(cardState)
 		? (
 			<div className={isSearching ? `${styles['main-card']} ${styles['main-card--loading']}` : styles['main-card']}>
 				<div className={styles['main-card-accent']}></div>
@@ -70,7 +70,7 @@ export function MainCard(
 						disabled={isSearching}
 					>
 						<span className="material-symbols-outlined">casino</span>
-							Fetch Random Repository
+						Fetch Random Repository
 					</button>
 				</div>
 				<div className={styles['main-card-footer']}>

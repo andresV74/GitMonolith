@@ -12,7 +12,7 @@ const LANGUAGE_DATA_URL = 'https://raw.githubusercontent.com/kamranahmedse/githu
 const REPO_DATA_URL = 'https://api.github.com/search/repositories?per_page=100&q=language:'
 
 function App() {
-  const { data: languages, loading, error: err } = useFetchResults<Language[]>(LANGUAGE_DATA_URL)
+  const { data: languages, loading, error } = useFetchResults<Language[]>(LANGUAGE_DATA_URL)
   const [ isCardEmpty, setIsCardEmpty ] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState<string>('')
   const [selectedRepo, setSelectedRepo] = useState<RepositoryItem | null>(null)
@@ -34,8 +34,8 @@ function App() {
 
       setSelectedRepo(randomRepo)
       setSelectedLanguage(selectedLanguage)
-    } catch (err) {
-      console.error('Failed to fetch repository data:', err)
+    } catch (languageError) {
+      console.error('Failed to fetch repository data:', languageError)
     } finally {
       setIsSearching(false)
     }
@@ -47,7 +47,7 @@ function App() {
       <Main
         languages={languages}
         loading={loading}
-        error={err}
+        error={error}
         onChangeLanguage={handleChangeLanguage}
         cardState={isCardEmpty}
         selectedLanguage={selectedLanguage}

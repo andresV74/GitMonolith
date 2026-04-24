@@ -5,8 +5,15 @@
 	min-height: 500px;
 	position: relative;
 
+	&::before {
+		filter: blur(10px);
+		opacity: 0;
+		z-index: -2;
+	}
+
+	&::before,
 	&::after {
-		animation: glowing-border 6s linear infinite;
+		animation: glowing-border 4s linear infinite;
 		background: conic-gradient(from var(--angle),
 			var(--color-gm-bright-blue),
 			var(--color-gm-dark-blue),
@@ -25,6 +32,7 @@
 		z-index: -1;
 	}
 
+	&--loading::before,
 	&--loading::after {
 		opacity: 1;
 	}
@@ -185,6 +193,17 @@
 			transform: scale(0.98);
 		}
 
+		&:disabled {
+			background-image: linear-gradient(to right,
+				#acc7ff,
+				#0069da);
+			color: var(--color-gm-gray);
+			opacity: 0.5;
+			pointer-events: none;
+			transform: none;
+			box-shadow: none;
+		}
+
 		span {
 			font-variation-settings: 'FILL' 1;
 		}
@@ -233,6 +252,16 @@
 	syntax: "<angle>";
 	initial-value: 53deg;
 	inherits: false;
+}
+
+@keyframes blur-effect {
+	0% {
+		filter: blur(20px)
+	}
+
+	to {
+		filter: blur(19px)
+	}
 }
 
 @keyframes glowing-border {
