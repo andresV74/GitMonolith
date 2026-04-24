@@ -1,5 +1,6 @@
 import { handleChange} from '../../services/handleChange'
-import styles from './index.module.scss';
+
+import styles from './MainHeader.module.scss';
 import type { LanguageProps } from '../../types/language'
 
 export function MainHeader({ languages, loading, error, onChangeLanguage }: LanguageProps) {

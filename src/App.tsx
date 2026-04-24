@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { Header } from './components/Header/Header.tsx'
-import { Main } from './components/Main/index.tsx'
+import { Main } from './components/Main/Main.tsx'
 import { MobileNavigation } from './components/MobileNavigation/index.tsx'
 import { useFetchResults } from './hooks/useFetchResults.tsx'
 import { fetchResults } from './services/api.ts'
@@ -29,8 +29,8 @@ function App() {
     try {
       setIsCardEmpty(true)
       setIsSearching(true)
-      const data = await fetchResults<Repository>(`${REPO_DATA_URL}${selectedLanguage}`)
-      const randomRepo = chooseRepository(data.total_count, data.items)
+      const reposData = await fetchResults<Repository>(`${REPO_DATA_URL}${selectedLanguage}`)
+      const randomRepo = chooseRepository(reposData.total_count, reposData.items)
 
       setSelectedRepo(randomRepo)
       setSelectedLanguage(selectedLanguage)

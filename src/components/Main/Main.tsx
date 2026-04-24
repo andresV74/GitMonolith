@@ -1,11 +1,11 @@
-import { MainHeader } from '../MainHeader/index.tsx';
-import { MainCard } from '../MainCard/index.tsx';
+import { MainHeader } from '../MainHeader/MainHeader.tsx';
+import { MainCard } from '../MainCard/MainCard.tsx';
 import { SecondaryCards } from '../SecondaryCards/index.tsx';
 
-import styles from './index.module.scss';
-import type { LanguageProps } from '../../types/language'
+import styles from './Main.module.scss';
+import type { LanguageProps } from '../../types/language.ts'
 import type { RepositoryItem } from '../../types/repoInfo.ts';
-import type { PostMetaProps } from '../../types/postMetaProps'
+import type { PostMetaProps } from '../../types/postMetaProps.ts'
 
 export function Main(
 	{
