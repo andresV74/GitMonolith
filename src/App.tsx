@@ -4,7 +4,7 @@ import { Header } from './components/Header/Header.tsx'
 import { Main } from './components/Main/Main.tsx'
 import { MobileNavigation } from './components/MobileNavigation/index.tsx'
 import { useFetchResults } from './hooks/useFetchResults.tsx'
-import { fetchResults } from './services/api.ts'
+import { apiCall } from './services/api.ts'
 import type { Language } from './types/language.ts'
 import type { Repository, RepositoryItem } from './types/repoInfo.ts'
 
@@ -14,9 +14,9 @@ const REPO_DATA_URL = 'https://api.github.com/search/repositories?per_page=100&q
 function App() {
   const { data: languages, loading, error } = useFetchResults<Language[]>(LANGUAGE_DATA_URL)
   const [ isCardEmpty, setIsCardEmpty ] = useState(false)
-  const [selectedLanguage, setSelectedLanguage] = useState<string>('')
-  const [selectedRepo, setSelectedRepo] = useState<RepositoryItem | null>(null)
-  const [isSearching, setIsSearching] = useState(false)
+  const [ selectedLanguage, setSelectedLanguage ] = useState<string>('')
+  const [ selectedRepo, setSelectedRepo ] = useState<RepositoryItem | null>(null)
+  const [ isSearching, setIsSearching ] = useState(false)
 
   const chooseRepository = (totalCount: number, items: RepositoryItem[]) => {
     const limit = Math.min(totalCount, items.length)
@@ -29,7 +29,7 @@ function App() {
     try {
       setIsCardEmpty(true)
       setIsSearching(true)
-      const reposData = await fetchResults<Repository>(`${REPO_DATA_URL}${selectedLanguage}`)
+      const reposData = await apiCall<Repository>(`${REPO_DATA_URL}${selectedLanguage}`)
       const randomRepo = chooseRepository(reposData.total_count, reposData.items)
 
       setSelectedRepo(randomRepo)

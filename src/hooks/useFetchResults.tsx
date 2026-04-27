@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fetchResults } from '../services/api'
+import { apiCall } from '../services/api'
 
 export function useFetchResults<T>(url: string) {
 	const [data, setData] = useState<T | null>(null)
@@ -10,7 +10,7 @@ export function useFetchResults<T>(url: string) {
 		async function fetchData() {
 			try {
 				setLoading(true)
-				const result = await fetchResults<T>(url)
+				const result = await apiCall<T>(url)
 				setData(result)
 			} catch (err) {
 				if (err instanceof Error && err.name !== 'AbortError') {
