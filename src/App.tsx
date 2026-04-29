@@ -8,12 +8,13 @@ import { apiCall } from './services/api.ts'
 import type { Language } from './types/language.ts'
 import type { Repository, RepositoryItem } from './types/repoInfo.ts'
 
-const LANGUAGE_DATA_URL = 'https://raw.githubusercontent.com/kamranahmedse/githunt/master/src/components/filters/language-filter/languages.json'
+const LANGUAGE_DATA_URL = './src/data/languages.json'
 const REPO_DATA_URL = 'https://api.github.com/search/repositories?per_page=100&q=language:'
 
 function App() {
   const { data: languages, loading, error } = useFetchResults<Language[]>(LANGUAGE_DATA_URL)
   const [ isCardEmpty, setIsCardEmpty ] = useState(false)
+  const [languageError, setLanguageError] = useState(false)
   const [ selectedLanguage, setSelectedLanguage ] = useState<string>('')
   const [ selectedRepo, setSelectedRepo ] = useState<RepositoryItem | null>(null)
   const [ isSearching, setIsSearching ] = useState(false)
@@ -29,6 +30,7 @@ function App() {
     try {
       setIsCardEmpty(true)
       setIsSearching(true)
+      setLanguageError(false)
       const reposData = await apiCall<Repository>(`${REPO_DATA_URL}${selectedLanguage}`)
       const randomRepo = chooseRepository(reposData.total_count, reposData.items)
 
@@ -38,6 +40,7 @@ function App() {
       console.error('Failed to fetch repository data:', languageError)
     } finally {
       setIsSearching(false)
+      setLanguageError(true)
     }
   }
 
@@ -48,6 +51,7 @@ function App() {
         languages={languages}
         loading={loading}
         error={error}
+        languageError={languageError}
         onChangeLanguage={handleChangeLanguage}
         cardState={isCardEmpty}
         selectedLanguage={selectedLanguage}

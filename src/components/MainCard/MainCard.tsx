@@ -6,6 +6,7 @@ import type { PostMetaProps } from '../../types/postMetaProps'
 export function MainCard(
 	{
 		cardState,
+		languageError,
 		selectedLanguage = '',
 		selectedRepo,
 		isSearching,
@@ -13,15 +14,30 @@ export function MainCard(
 		onChangeLanguage,
 	}: LanguageProps
 		& PostMetaProps & {
-			cardState: boolean;
-			selectedLanguage: string;
-			selectedRepo: RepositoryItem | null;
+			cardState: boolean
+			selectedLanguage: string
+			selectedRepo: RepositoryItem | null
 			isSearching: boolean
+			languageError: boolean
 		}
 	) {
 	return (
 		(cardState)
 		? (
+			<div className={isSearching ? `${styles['main-card']} ${styles['main-card--loading']}` : styles['main-card']}>
+				<div className={styles['main-card-accent']}></div>
+				<div className={`${styles['main-card-content']} ${styles['empty']}`}>
+					<h2>
+						{
+							languageError
+								? 'Error fetching repositories for the selected language. Please try again.'
+								: 'Select a programming language from the dropdown Language filter to discover a random repository.'
+						}
+					</h2>
+				</div>
+			</div>
+		)
+		: (
 			<div className={isSearching ? `${styles['main-card']} ${styles['main-card--loading']}` : styles['main-card']}>
 				<div className={styles['main-card-accent']}></div>
 				<div className={styles['main-card-content']}>
