@@ -31,6 +31,7 @@ export function MainCard(
 						{
 							languageError
 								? 'Error fetching repositories for the selected language. Please try again.'
+								: isSearching ? 'Loading...'
 								: 'Select a programming language from the dropdown Language filter to discover a random repository.'
 						}
 					</h2>
@@ -101,14 +102,6 @@ export function MainCard(
 							{new Date(publishedAt).toLocaleDateString()}
 						</relative-time>
 					</span>
-				</div>
-			</div>
-		)
-		: (
-			<div className={styles['main-card']}>
-				<div className={styles['main-card-accent']}></div>
-				<div className={`${styles['main-card-content']} ${styles['empty']}`}>
-					<h2>Please choose a language from the dropdown Language filter</h2>
 				</div>
 			</div>
 		)

@@ -13,7 +13,7 @@ const REPO_DATA_URL = 'https://api.github.com/search/repositories?per_page=100&q
 
 function App() {
   const { data: languages, loading, error } = useFetchResults<Language[]>(LANGUAGE_DATA_URL)
-  const [ isCardEmpty, setIsCardEmpty ] = useState(false)
+  const [ isCardEmpty, setIsCardEmpty ] = useState(true)
   const [languageError, setLanguageError] = useState(false)
   const [ selectedLanguage, setSelectedLanguage ] = useState<string>('')
   const [ selectedRepo, setSelectedRepo ] = useState<RepositoryItem | null>(null)
@@ -28,16 +28,18 @@ function App() {
 
   const handleChangeLanguage = async (selectedLanguage: string) => {
     try {
-      setIsCardEmpty(true)
       setIsSearching(true)
       setLanguageError(false)
       const reposData = await apiCall<Repository>(`${REPO_DATA_URL}${selectedLanguage}`)
       const randomRepo = chooseRepository(reposData.total_count, reposData.items)
 
       setSelectedRepo(randomRepo)
+      setIsCardEmpty(false)
       setSelectedLanguage(selectedLanguage)
     } catch (languageError) {
       console.error('Failed to fetch repository data:', languageError)
+      setIsCardEmpty(true)
+      setLanguageError(true)
     } finally {
       setIsSearching(false)
       setLanguageError(true)
