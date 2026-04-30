@@ -61,7 +61,8 @@
 	}
 
 	::picker(select) {
-		background: var(--color-gm-dark-blue);
+		backdrop-filter: blur(7px);
+		background: var(--color-gm-accent-gray);
 		border: none;
 		border-radius: 0 0 12px 12px;
 		color: var(--color-gm-blue);
@@ -70,7 +71,7 @@
 		line-height: 1;
 		margin-block-start: 1px;
 		margin-inline-start: -41px;
-		opacity: 0.8;
+		overflow-x: hidden;
 		width: 250px;
 	}
 

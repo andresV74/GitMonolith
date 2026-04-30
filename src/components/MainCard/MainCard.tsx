@@ -53,13 +53,13 @@ export function MainCard(
 							{selectedRepo?.description}
 						</p>
 					</div>
-					<div className={styles['main-card-stats-grid']}>
+					<div className={isSearching ? `${styles['main-card-stats-grid']} ${styles['loading']}` : styles['main-card-stats-grid']}>
 						<div className={styles['stat-item']}>
 							<div className={styles['stat-value']}>
 								<span className="material-symbols-outlined">star</span>
 								<span>Stars</span>
 							</div>
-							<div className={isSearching ? `${styles['stat-label']} ${styles['loading']}` : styles['stat-label']}>
+							<div className={styles['stat-label']}>
 								{selectedRepo?.stargazers_count}
 							</div>
 						</div>
@@ -68,7 +68,7 @@ export function MainCard(
 								<span className="material-symbols-outlined">account_tree</span>
 								<span>Forks</span>
 							</div>
-							<div className={isSearching ? `${styles['stat-label']} ${styles['loading']}` : styles['stat-label']}>
+							<div className={styles['stat-label']}>
 								{selectedRepo?.forks_count}
 							</div>
 						</div>
@@ -77,7 +77,7 @@ export function MainCard(
 								<span className="material-symbols-outlined">error</span>
 								<span>Issues</span>
 							</div>
-							<div className={isSearching ? `${styles['stat-label']} ${styles['loading']}` : styles['stat-label']}>
+							<div className={styles['stat-label']}>
 								{selectedRepo?.open_issues_count}
 							</div>
 						</div>

@@ -99,6 +99,7 @@
 		font-size: 1.25rem;
 		font-weight: 800;
 		letter-spacing: -0.02em;
+		min-height: 30px;
 		text-shadow: 0px 1px 2px #444;
 	}
 
@@ -226,7 +227,7 @@
 		letter-spacing: 0.05em;
 		gap: 1rem;
 		justify-content: space-between;
-		padding: 1rem 2.5rem;
+		padding: 1rem 1.25rem;
 
 		.footer-item {
 			align-items: center;
@@ -237,6 +238,7 @@
 			div {
 				background-color: var(--color-gm-yellow);
 				border-radius: 50%;
+				flex-shrink: 0;
 				height: 0.5rem;
 				width: 0.5rem;
 			}
@@ -245,6 +247,10 @@
 		& > span {
 			opacity: 0.3;
 		}
+
+			@media(min-width: 768px) {
+				padding: 1rem 2.5rem;
+			}
 	}
 }
 
