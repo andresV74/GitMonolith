@@ -41,15 +41,37 @@
 	}
 
 	select {
+		align-items: center;
+		appearance: none;
 		background-color: transparent;
 		border: none;
 		color: var(--color-gm-light-gray);
 		cursor: pointer;
 		height: 100%;
+		width: 200px;
 
 		&:focus {
 			outline: none;
 		}
+	}
+
+	select,
+	::picker(select) {
+		appearance: base-select;
+	}
+
+	::picker(select) {
+		background: var(--color-gm-dark-blue);
+		border: none;
+		border-radius: 0 0 12px 12px;
+		color: var(--color-gm-blue);
+		font-size: 0.875rem;
+		height: 350px;
+		line-height: 1;
+		margin-block-start: 1px;
+		margin-inline-start: -41px;
+		opacity: 0.8;
+		width: 250px;
 	}
 
 	@media (min-width: 768px) {
