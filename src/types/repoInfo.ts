@@ -5,6 +5,9 @@ export type RepositoryItem = {
 	stargazers_count: number
 	forks_count: number
 	open_issues_count: number
+	owner: {
+		html_url: string
+	}
 	html_url: string
 }
 

@@ -44,10 +44,14 @@ export function MainCard(
 				<div className={styles['main-card-content']}>
 					<div>
 						<h3 className={isSearching ? styles.loading : ''}>
-							{selectedRepo?.full_name.split('/')[0]}
+							<a href={selectedRepo?.owner.html_url} target="_blank" rel="noopener noreferrer">
+								{selectedRepo?.full_name.split('/')[0]}
+							</a>
 						</h3>
 						<h2>
-							{isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[1]}
+							<a href={selectedRepo?.html_url} target="_blank" rel="noopener noreferrer">
+								{isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[1]}
+							</a>
 						</h2>
 						<p className={isSearching ? styles.loading : ''}>
 							{selectedRepo?.description}

@@ -32,7 +32,7 @@ function App() {
     try {
       setIsSearching(true)
       setLanguageError(false)
-      const reposData = await apiCall<Repository>(`${REPO_DATA_URL}${selectedLanguage}`)
+      const reposData = await apiCall<Repository>(`${REPO_DATA_URL}${selectedLanguage.toLowerCase()}`)
       const randomRepo = chooseRepository(reposData.total_count, reposData.items)
       increment()
 
