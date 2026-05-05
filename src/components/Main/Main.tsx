@@ -1,6 +1,6 @@
 import { MainHeader } from '../MainHeader/MainHeader.tsx';
 import { MainCard } from '../MainCard/MainCard.tsx';
-import { SecondaryCards } from '../SecondaryCards/index.tsx';
+import { SecondaryCards } from '../SecondaryCards/SecondaryCards.tsx';
 
 import styles from './Main.module.scss';
 import type { LanguageProps } from '../../types/language.ts'
@@ -18,7 +18,8 @@ export function Main(
 		selectedLanguage,
 		selectedRepo,
 		isSearching,
-		publishedAt
+		publishedAt,
+		counter,
 	}: LanguageProps
 		& PostMetaProps
 		& {
@@ -27,14 +28,15 @@ export function Main(
 			selectedLanguage: string
 			selectedRepo: RepositoryItem | null
 			isSearching: boolean
+			counter: number
 		}
 	) {
 	return (
 		<main className={styles.main}>
       <div className={styles['main-content']}>
 				<MainHeader languages={languages} loading={loading} error={error} onChangeLanguage={onChangeLanguage} />
-			<MainCard cardState={cardState} languageError={languageError} selectedLanguage={selectedLanguage} selectedRepo={selectedRepo} isSearching={isSearching} publishedAt={publishedAt} onChangeLanguage={onChangeLanguage} />
-				<SecondaryCards />
+				<MainCard cardState={cardState} languageError={languageError} selectedLanguage={selectedLanguage} selectedRepo={selectedRepo} isSearching={isSearching} publishedAt={publishedAt} onChangeLanguage={onChangeLanguage} />
+				<SecondaryCards counter={counter} />
       </div>
 		</main>
 	)

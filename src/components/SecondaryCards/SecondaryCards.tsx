@@ -1,6 +1,6 @@
-import styles from './index.module.scss';
+import styles from './SecondaryCards.module.scss';
 
-export function SecondaryCards() {
+export function SecondaryCards({ counter }: { counter: number }) {
 	return (
 		<div className={styles['secondary-cards']}>
 			<div className={styles.card}>
@@ -20,7 +20,7 @@ export function SecondaryCards() {
 				</div>
 			</div>
 			<div className={`${styles['card']} ${styles['flex-card']}`}>
-				<span>2,840+</span>
+				<span>{counter}</span>
 				<span>Repos Fetched Today</span>
 			</div>
 		</div>
