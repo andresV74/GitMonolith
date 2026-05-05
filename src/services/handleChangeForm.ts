@@ -1,4 +1,4 @@
-export const handleChange = (
+export const handleChangeForm = (
 	event: React.ChangeEvent<HTMLFormElement>,
 	onChangeLanguage: (language: string) => void) => {
 		event.preventDefault()

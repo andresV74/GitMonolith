@@ -1,4 +1,4 @@
-import { handleChange} from '../../services/handleChange'
+import { handleChangeForm } from '../../services/handleChangeForm'
 
 import styles from './MainHeader.module.scss';
 import type { LanguageProps } from '../../types/language'
@@ -12,7 +12,7 @@ export function MainHeader({ languages, loading, error, onChangeLanguage }: Lang
 			</div>
 			<div>
 				<label htmlFor="language">Language Filter</label>
-				<form onChange={(e) => handleChange(e, onChangeLanguage)} id='language-choose-form' role='search'>
+				<form onChange={(e) => handleChangeForm(e, onChangeLanguage)} id='language-choose-form' role='search'>
 					<span className="material-symbols-outlined text-primary text-lg">code</span>
 					{error
 						? (<div className={styles['main-header__error-message']}>Error fetching data</div>)
