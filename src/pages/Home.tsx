@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import { Main } from '../components/Main/Main.tsx'
-import { MobileNavigation } from '../components/MobileNavigation/index.tsx'
 import { useFetchResults } from '../hooks/useFetchResults.tsx'
 import { useDailyCounter } from '../hooks/useDailyCounter.tsx'
 import { apiCall } from '../services/api.ts'
@@ -49,21 +48,18 @@ export function Homepage() {
 	}
 
 	return (
-		<>
-			<Main
-				languages={languages}
-				loading={loading}
-				error={error}
-				languageError={languageError}
-				onChangeLanguage={handleChangeLanguage}
-				cardState={isCardEmpty}
-				selectedLanguage={selectedLanguage}
-				selectedRepo={selectedRepo}
-				isSearching={isSearching}
-				publishedAt={new Date().toISOString()}
-				counter={count}
-			/>
-			<MobileNavigation />
-		</>
+		<Main
+			languages={languages}
+			loading={loading}
+			error={error}
+			languageError={languageError}
+			onChangeLanguage={handleChangeLanguage}
+			cardState={isCardEmpty}
+			selectedLanguage={selectedLanguage}
+			selectedRepo={selectedRepo}
+			isSearching={isSearching}
+			publishedAt={new Date().toISOString()}
+			counter={count}
+		/>
 	)
 }

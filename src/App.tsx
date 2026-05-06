@@ -4,6 +4,7 @@ import { LanguagesPage } from './pages/Languages.tsx'
 import { HistoryPage } from './pages/History.tsx'
 import { NotFoundPage } from './pages/404.tsx'
 import { Route } from './components/Route/Route.tsx'
+import { MobileNavigation } from './components/MobileNavigation/index.tsx'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Route path="/languages" component={LanguagesPage} />
       <Route path="/history" component={HistoryPage} />
       <Route path="*" component={NotFoundPage} />
+      <MobileNavigation />
     </>
   )
 }
