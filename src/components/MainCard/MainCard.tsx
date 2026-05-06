@@ -45,12 +45,14 @@ export function MainCard(
 					<div>
 						<h3 className={isSearching ? styles.loading : ''}>
 							<a href={selectedRepo?.owner.html_url} target="_blank" rel="noopener noreferrer">
-								{selectedRepo?.full_name.split('/')[0]}
+								<span>{selectedRepo?.full_name.split('/')[0]}</span>
+								<span className='material-symbols-outlined'>open_in_new</span>
 							</a>
 						</h3>
 						<h2>
 							<a href={selectedRepo?.html_url} target="_blank" rel="noopener noreferrer">
-								{isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[1]}
+								<span>{isSearching ? 'Loading...' : selectedRepo?.full_name.split('/')[1]}</span>
+								<span className='material-symbols-outlined'>open_in_new</span>
 							</a>
 						</h2>
 						<p className={isSearching ? styles.loading : ''}>

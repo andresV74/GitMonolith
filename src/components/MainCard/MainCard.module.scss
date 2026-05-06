@@ -82,9 +82,12 @@
 		a {
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
+			align-items: baseline;
 			background: linear-gradient(to bottom right, var(--color-gm-blue), var(--color-gm-dark-blue));
 			background-clip: text;
 			background-size: 100%;
+			display: flex;
+			gap: 0.25rem;
 			text-decoration: none;
 			transition: all 0.3s ease-in-out;
 
@@ -107,10 +110,17 @@
 		min-height: 30px;
 
 		a {
+			align-items: center;
 			color: inherit;
+			display: flex;
+			gap: 0.25rem;
 			text-decoration: none;
 			text-shadow: 0px 1px 2px #444;
 			transition: all 0.2s ease-in-out;
+
+			span:last-child {
+				font-size: 1.125rem;
+			}
 
 			&:hover {
 				text-shadow: 0px -1px 2px #444444a6;
