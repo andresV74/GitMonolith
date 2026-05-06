@@ -27,14 +27,17 @@
 	}
 
 	a {
-		align-items: center;
 		color: var(--color-gm-gray);
-		display: flex;
-		gap: 4px;
 		text-decoration: none;
 
 		&:hover {
 			color: var(--color-gm-blue);
+		}
+
+		& > span {
+			align-items: center;
+			display: flex;
+			gap: 4px;
 		}
 	}
 
