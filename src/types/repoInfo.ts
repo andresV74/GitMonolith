@@ -6,6 +6,7 @@ export type RepositoryItem = {
 	forks_count: number
 	open_issues_count: number
 	owner: {
+		avatar_url?: string
 		html_url: string
 	}
 	html_url: string

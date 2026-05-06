@@ -9,7 +9,7 @@ export function Link({ href, children, ...restOfProps }: { href: string, childre
 
 	return (
 		<a href={href} {...restOfProps} onClick={handleClick}>
-			<span>{children}</span>
+			{children}
 		</a>
 	)
 }
