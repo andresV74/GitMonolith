@@ -1,5 +1,6 @@
+import { Main } from '../components/LanguagePage/Main/Main.tsx'
 export function LanguagesPage() {
 	return (
-		<h1>Languages page</h1>
+		<Main />
 	)
 }

@@ -6,6 +6,7 @@
 	--color-gm-transparent-gray: #31353c4d;
 	--color-gm-light-gray: #dfe2eb;
 	--color-gm-gray: #c4c7ce;
+	--color-gm-darker-gray: #97a3b6;
 	--color-gm-dark-gray: #181c22;
 	--color-gm-almost-black: #0a0e14;
 	--color-gm-bright-blue: #00ddff;
@@ -20,4 +21,24 @@ body {
 	color: var(--color-gm-light-gray);
 	font-family: 'Inter', sans-serif;
 	font-size: 16px;
+}
+
+h1 {
+	font-size: 1.875rem;
+	font-weight: 700;
+	letter-spacing: -0.025em;
+	line-height: 2.25rem;
+	margin-bottom: 4px;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 4.125rem;
+	padding: 20px;
+
+	@media (min-width: 768px) {
+		margin-bottom: 0;
+		padding: 32px;
+	}
 }

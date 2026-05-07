@@ -1,8 +1,9 @@
 import { useState } from 'react'
 
-import { Main } from '../components/Main/Main.tsx'
+import { Main } from '../components/HomePage/Main/Main.tsx'
 import { useFetchResults } from '../hooks/useFetchResults.tsx'
 import { useDailyCounter } from '../hooks/useDailyCounter.tsx'
+import { useLanguageList } from '../hooks/useLanguageList.tsx'
 import { apiCall } from '../services/api.ts'
 import type { Language } from '../types/language.ts'
 import type { Repository, RepositoryItem } from '../types/repoInfo.ts'
@@ -18,7 +19,7 @@ export function Homepage() {
 	const [ selectedRepo, setSelectedRepo ] = useState<RepositoryItem | null>(null)
 	const [ isSearching, setIsSearching ] = useState(false)
 	const { count, increment } = useDailyCounter()
-
+	const { addNewLanguage } = useLanguageList()
 	const chooseRepository = (totalCount: number, items: RepositoryItem[]) => {
 		const limit = Math.min(totalCount, items.length)
 		const randomIndex = Math.floor(Math.random() * limit)
@@ -37,6 +38,7 @@ export function Homepage() {
 			setSelectedRepo(randomRepo)
 			setIsCardEmpty(false)
 			setSelectedLanguage(selectedLanguage)
+			addNewLanguage({ language: selectedLanguage, totalCount: reposData.total_count })
 		} catch (languageError) {
 			console.error('Failed to fetch repository data:', languageError)
 			setIsCardEmpty(true)

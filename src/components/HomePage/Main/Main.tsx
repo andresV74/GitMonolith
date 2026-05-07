@@ -3,9 +3,9 @@ import { MainCard } from '../MainCard/MainCard.tsx';
 import { SecondaryCards } from '../SecondaryCards/SecondaryCards.tsx';
 
 import styles from './Main.module.scss';
-import type { LanguageProps } from '../../types/language.ts'
-import type { RepositoryItem } from '../../types/repoInfo.ts';
-import type { PostMetaProps } from '../../types/postMetaProps.ts'
+import type { LanguageProps } from '../../../types/language.ts'
+import type { RepositoryItem } from '../../../types/repoInfo.ts';
+import type { PostMetaProps } from '../../../types/postMetaProps.ts'
 
 export function Main(
 	{

@@ -1,0 +1,10 @@
+.main {
+	&-content {
+		width: min(100%, 42rem);
+	}
+
+	ul {
+		margin-top: 4rem;
+		padding: 0;
+	}
+}

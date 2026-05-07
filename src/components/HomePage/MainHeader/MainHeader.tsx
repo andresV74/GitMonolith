@@ -1,7 +1,7 @@
-import { handleChangeForm } from '../../services/handleChangeForm'
+import { handleChangeForm } from '../../../services/handleChangeForm'
 
 import styles from './MainHeader.module.scss';
-import type { LanguageProps } from '../../types/language'
+import type { LanguageProps } from '../../../types/language'
 
 export function MainHeader({ languages, loading, error, onChangeLanguage }: LanguageProps) {
 	return (

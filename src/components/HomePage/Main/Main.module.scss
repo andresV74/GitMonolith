@@ -1,0 +1,10 @@
+.main {
+	min-height: calc(100vh - 64px);
+
+	&-content {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		width: min(100%, 42rem);
+	}
+}
