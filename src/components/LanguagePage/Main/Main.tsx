@@ -21,8 +21,8 @@ export function Main() {
 					{
 						languageList === null
 							?<h2>No language list exists yet</h2>
-							: languageList?.map(({language, totalCount, id}: LanguageListState & {id: number}) => (
-							<Card key={id} language={language} totalCount={totalCount} />
+							: languageList.map(({language, totalCount, id}: LanguageListState & {id: number}) => (
+								<Card key={id} language={language} totalCount={totalCount} />
 						))
 					}
 				</ul>
