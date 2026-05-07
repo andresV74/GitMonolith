@@ -1,7 +1,7 @@
 .main-card {
 	background: var(--color-gm-dark-gray);
-	border-radius: 8px;
-	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
 	min-height: 500px;
 	position: relative;
 
@@ -20,7 +20,7 @@
 			var(--color-gm-bright-blue),
 			var(--color-gm-dark-blue),
 			var(--color-gm-bright-blue));
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		content: "";
 		top: -1px;
 		right: -1px;
@@ -39,7 +39,7 @@
 
 	&-accent {
 		background: linear-gradient(to bottom right, var(--color-gm-accent-gray), transparent);
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		inset: 0;
 		pointer-events: none;
 		position: absolute;
@@ -149,7 +149,7 @@
 
 		.stat-item {
 			background-color: var(--color-gm-dark-gray);
-			border-radius: 0.25rem;
+			border-radius: var(--border-radius);
 			min-height: 100px;
 			padding: 1rem;
 
@@ -197,7 +197,7 @@
 			#acc7ff,
 			#0069da);
 		border: none;
-		border-radius: 0.25rem;
+		border-radius: var(--border-radius);
 		box-shadow: 0 0 #0000,
 			0 0 #0000,
 			0 10px 15px -3px rgb(0 0 0 / 0.1),

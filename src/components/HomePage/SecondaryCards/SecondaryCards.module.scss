@@ -5,7 +5,8 @@
 
 	.card {
 		background-color: var(--color-gm-dark-gray);
-		border-radius: 0.25rem;
+		box-shadow: var(--box-shadow);
+		border-radius: var(--border-radius);
 		padding: 1.5rem;
 
 		&.flex-card {
