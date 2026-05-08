@@ -1,11 +1,7 @@
 import { Card } from '../LanguageCard/LanguageCard.tsx'
 import { useLanguageList } from '../../../hooks/useLanguageList.tsx'
+import type { LanguageListState } from '../../../types/languageListState.ts'
 import styles from './Main.module.scss'
-
-type LanguageListState = {
-	language: string;
-	totalCount: number;
-};
 
 export function Main() {
 	const { languageList } = useLanguageList()
@@ -21,8 +17,8 @@ export function Main() {
 					{
 						languageList === null
 							?<h2>No language list exists yet</h2>
-							: languageList.map(({language, totalCount, id}: LanguageListState & {id: number}) => (
-								<Card key={id} language={language} totalCount={totalCount} />
+							: languageList.map(({language, totalCount}: LanguageListState) => (
+								<Card key={totalCount} language={language} totalCount={totalCount} />
 						))
 					}
 				</ul>

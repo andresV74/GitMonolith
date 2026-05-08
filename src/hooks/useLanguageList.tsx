@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react'
-
-type LanguageListState = {
-	language: string;
-	totalCount: number;
-};
+import type { LanguageListState } from '../types/languageListState.ts'
 
 const LANGUAGE_LIST = 'languageList'
 
