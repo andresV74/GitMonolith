@@ -1,0 +1,21 @@
+	.history-item {
+		align-items: center;
+		color: var(--color-gm-light-gray);
+		display: flex;
+		justify-content: space-between;
+		padding-block: 0.25rem;
+		padding-inline: 0.5rem;
+		text-decoration: none;
+
+		span {
+			font-size: 0.875rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			width: 30ch;
+			white-space: nowrap;
+		}
+
+		&:hover {
+			background-color: var(--color-gm-almost-black);
+		}
+	}

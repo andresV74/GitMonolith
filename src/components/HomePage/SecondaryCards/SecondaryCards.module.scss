@@ -49,27 +49,16 @@
 		}
 	}
 
-	.history-item {
-		align-items: center;
-		color: var(--color-gm-light-gray);
-		display: flex;
-		justify-content: space-between;
-		padding-block: 0.25rem;
-		padding-inline: 0.5rem;
-		text-decoration: none;
+	h5 {
+		text-align: center;
+	}
 
-		span:first-child {
-			font-size: 0.875rem;
-		}
-
-		span:last-child {
-			font-size: 0.625rem;
-			opacity: 0.5;
-		}
-
-		&:hover {
-			background-color: var(--color-gm-almost-black);
-		}
+	ul {
+		list-style: none;
+		margin: 0;
+		height: 58px;
+		overflow-y: scroll;
+		padding: 0;
 	}
 
 	@media (min-width: 768px) {

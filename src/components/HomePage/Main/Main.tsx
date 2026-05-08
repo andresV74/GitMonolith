@@ -2,10 +2,10 @@ import { MainHeader } from '../MainHeader/MainHeader.tsx';
 import { MainCard } from '../MainCard/MainCard.tsx';
 import { SecondaryCards } from '../SecondaryCards/SecondaryCards.tsx';
 
-import styles from './Main.module.scss';
 import type { LanguageProps } from '../../../types/language.ts'
 import type { RepositoryItem } from '../../../types/repoInfo.ts';
 import type { PostMetaProps } from '../../../types/postMetaProps.ts'
+import styles from './Main.module.scss';
 
 export function Main(
 	{
@@ -20,6 +20,7 @@ export function Main(
 		isSearching,
 		publishedAt,
 		counter,
+		reposList,
 	}: LanguageProps
 		& PostMetaProps
 		& {
@@ -29,6 +30,7 @@ export function Main(
 			selectedRepo: RepositoryItem | null
 			isSearching: boolean
 			counter: number
+			reposList: RepositoryItem[]
 		}
 	) {
 	return (
@@ -36,7 +38,7 @@ export function Main(
       <div className={styles['main-content']}>
 				<MainHeader languages={languages} loading={loading} error={error} onChangeLanguage={onChangeLanguage} />
 				<MainCard cardState={cardState} languageError={languageError} selectedLanguage={selectedLanguage} selectedRepo={selectedRepo} isSearching={isSearching} publishedAt={publishedAt} onChangeLanguage={onChangeLanguage} />
-				<SecondaryCards counter={counter} />
+				<SecondaryCards counter={counter} reposList={reposList} />
       </div>
 		</main>
 	)

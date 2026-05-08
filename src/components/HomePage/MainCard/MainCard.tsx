@@ -1,7 +1,7 @@
-import styles from './MainCard.module.scss';
 import type { LanguageProps } from '../../../types/language';
 import type { RepositoryItem } from '../../../types/repoInfo';
 import type { PostMetaProps } from '../../../types/postMetaProps'
+import styles from './MainCard.module.scss';
 
 export function MainCard(
 	{
