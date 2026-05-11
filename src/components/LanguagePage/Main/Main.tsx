@@ -1,4 +1,5 @@
 import { Card } from '../LanguageCard/LanguageCard.tsx'
+import { Pagination } from '../../Pagination/Pagination.tsx'
 import { useLanguageList } from '../../../hooks/useLanguageList.tsx'
 import type { LanguageListState } from '../../../types/languageListState.ts'
 import styles from './Main.module.scss'
@@ -23,6 +24,7 @@ export function Main() {
 					}
 				</ul>
 			</div>
+			<Pagination />
 		</main>
 	)
 }

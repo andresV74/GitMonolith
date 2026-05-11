@@ -1,0 +1,36 @@
+.pagination {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+	justify-content: space-between;
+	width: min(100%, 42rem);
+
+	span {
+		color: var(--color-gm-darker-gray);
+	}
+
+	nav {
+		align-items: center;
+		display: flex;
+		gap: 0.5rem;
+
+		a {
+			align-items: center;
+			border-radius: 0.5rem;
+			box-shadow: var(--box-shadow);
+			background-color: var(--color-gm-dark-gray);
+			color: var(--color-gm-light-gray);
+			display: flex;
+			height: 3rem;
+			justify-content: center;
+			text-decoration: none;
+			transition: all 0.15s ease-in-out;
+			width: 3rem;
+
+			&:hover {
+				box-shadow: var(--box-shadow-hover);
+				transform: translateY(1px);
+			}
+		}
+	}
+}

@@ -1,4 +1,7 @@
 .main {
+	align-items: center;
+	flex-direction: column;
+
 	&-content {
 		width: min(100%, 42rem);
 	}
