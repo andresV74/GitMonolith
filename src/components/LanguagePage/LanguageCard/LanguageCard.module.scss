@@ -12,11 +12,16 @@
 
 	h2 {
 		color: var(--color-gm-darker-gray);
+		font-size: 1.125rem;
 		line-height: 1;
 	}
 
+	&__count-info {
+		flex-shrink: 0;
+	}
+
 	&__count {
-		font-size: 1.5rem;
+		font-size: 1.125rem;
 		font-weight: bold;
 		color: var(--color-gm-light-gray);
 		text-align: center;
@@ -31,5 +36,13 @@
 
 	@media(min-width: 768px) {
 		padding: 1rem 2rem;
+
+		h2 {
+			font-size: 1.5rem;
+		}
+
+		&__count {
+			font-size: 1.55rem;
+		}
 	}
 }

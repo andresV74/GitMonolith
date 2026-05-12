@@ -1,12 +1,14 @@
 .pagination {
 	align-items: center;
 	display: flex;
+	flex-wrap: wrap;
 	gap: 1rem;
-	justify-content: space-between;
+	justify-content: center;
 	width: min(100%, 42rem);
 
 	span {
 		color: var(--color-gm-darker-gray);
+		line-height: 1;
 	}
 
 	nav {
@@ -21,16 +23,39 @@
 			background-color: var(--color-gm-dark-gray);
 			color: var(--color-gm-light-gray);
 			display: flex;
-			height: 3rem;
+			height: 2rem;
 			justify-content: center;
+			position: relative;
 			text-decoration: none;
 			transition: all 0.15s ease-in-out;
-			width: 3rem;
+			width: 2rem;
 
 			&:hover {
 				box-shadow: var(--box-shadow-hover);
 				transform: translateY(1px);
 			}
+
+			@media(min-width: 768px) {
+				height: 3rem;
+				width: 3rem;
+			}
 		}
 	}
+}
+
+.is-active::before {
+	content: '';
+	background-color: var(--color-gm-dark-blue);
+	border-radius: 0.5rem;
+	height: inherit;
+	left: 0;
+	opacity: 0.2;
+	position: absolute;
+	top: 0;
+	width: inherit;
+}
+
+.disabled {
+	opacity: 0.3;
+	pointer-events: none;
 }
